@@ -1,7 +1,8 @@
-package ru.vdv.myapp.mydictionary
+package ru.vdv.myapp.mydictionary.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.vdv.myapp.mydictionary.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
