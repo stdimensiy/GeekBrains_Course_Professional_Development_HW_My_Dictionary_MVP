@@ -1,4 +1,4 @@
-package ru.vdv.myapp.mydictionary.view
+package ru.vdv.myapp.mydictionary.view.common
 
 import ru.vdv.myapp.mydictionary.model.data.AppState
 

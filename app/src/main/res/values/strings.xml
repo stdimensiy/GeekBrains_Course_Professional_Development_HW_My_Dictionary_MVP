@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Dictionary</string>
+    <string name="button_search">Найти</string>
+    <string name="search_hint">Новое слово</string>
+    <string name="delete_description">X</string>
+    <string name="error_textview_stub">Ошибка!</string>
+    <string name="search_btn_content_desscription">Поиск</string>
+    <string name="reload_button">Обновить</string>
 </resources>

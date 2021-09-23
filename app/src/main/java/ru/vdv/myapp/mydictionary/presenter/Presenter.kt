@@ -1,7 +1,7 @@
 package ru.vdv.myapp.mydictionary.presenter
 
 import ru.vdv.myapp.mydictionary.model.data.AppState
-import ru.vdv.myapp.mydictionary.view.View
+import ru.vdv.myapp.mydictionary.view.common.View
 
 interface Presenter<T : AppState, V : View> {
 

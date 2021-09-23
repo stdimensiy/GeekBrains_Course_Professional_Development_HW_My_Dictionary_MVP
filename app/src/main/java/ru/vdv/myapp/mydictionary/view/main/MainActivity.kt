@@ -1,4 +1,4 @@
-package ru.vdv.myapp.mydictionary.view
+package ru.vdv.myapp.mydictionary.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

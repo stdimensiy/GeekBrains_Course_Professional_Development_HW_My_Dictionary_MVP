@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_medium">15dp</dimen>
+    <dimen name="text_size_standard">17sp</dimen>
+    <dimen name="margin_xxx_medium">45dp</dimen>
+    <dimen name="text_size_large">25sp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="text_size_standard_header">20sp</dimen>
+    <dimen name="hairline">1dp</dimen>
+</resources>
