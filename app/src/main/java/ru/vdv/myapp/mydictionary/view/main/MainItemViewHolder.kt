@@ -11,9 +11,7 @@ class MainItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         if (layoutPosition != RecyclerView.NO_POSITION) {
             itemView.findViewById<TextView>(R.id.header_textview_recycler_item).text = data.word
             itemView.findViewById<TextView>(R.id.description_textview_recycler_item).text =
-                data.meanings.get(0).definitions.get(0).definition
-            //itemView.setOnClickListener { openInNewWindow(data) }
+                data.meanings[0].definitions[0].definition
         }
     }
-
 }

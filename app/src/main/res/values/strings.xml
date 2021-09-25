@@ -6,4 +6,6 @@
     <string name="error_textview_stub">Ошибка!</string>
     <string name="search_btn_content_desscription">Поиск</string>
     <string name="reload_button">Обновить</string>
+    <string name="empty_server_response_on_success">Сервер прислал пустой ответ</string>
+    <string name="undefined_error">Неизвестная ошибка!</string>
 </resources>

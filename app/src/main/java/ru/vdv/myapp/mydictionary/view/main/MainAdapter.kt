@@ -26,7 +26,12 @@ class MainAdapter(
     )
 
     override fun onBindViewHolder(holder: MainItemViewHolder, position: Int) {
-        holder.bind(data.get(position))
+        holder.bind(data[position])
+        holder.itemView.setOnClickListener { openInNewWindow(data[position]) }
+    }
+
+    private fun openInNewWindow(listItemData: DataModelFD) {
+        onListItemClickListener.onItemClick(listItemData)
     }
 
     override fun getItemCount(): Int {
