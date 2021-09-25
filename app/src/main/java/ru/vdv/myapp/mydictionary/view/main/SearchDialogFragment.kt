@@ -3,6 +3,7 @@ package ru.vdv.myapp.mydictionary.view.main
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,24 +17,22 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
     private var onSearchClickListener: OnSearchClickListener? = null
     private val textWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            if (binding.searchEditText.text != null &&
-                !binding.searchEditText.text.toString()
-                    .isEmpty()
-            ) {
-                binding.searchButtonTextview.isEnabled = true
-                binding.clearTextImageview.visibility = View.VISIBLE
-            } else {
-                binding.searchButtonTextview.isEnabled = false
-                binding.clearTextImageview.visibility = View.GONE
-            }
+            //в текущий момент времени реализация данного метода не предусмотрена
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            //пока оставим пустым
+            Log.d("Моя проверка / SearchDialogFragment", "Сработал onTextChanged с параметрами: $s символ старт: $start  стоп: $before количество $count")
+            if(count==0) {
+                binding.searchButtonTextview.visibility = View.GONE
+                binding.clearTextImageview.visibility = View.GONE
+            } else {
+                binding.searchButtonTextview.visibility = View.VISIBLE
+                binding.clearTextImageview.visibility = View.VISIBLE
+            }
         }
 
         override fun afterTextChanged(s: Editable?) {
-            //пока оставим пустым
+            //в текущий момент времени реализация данного метода не предусмотрена
         }
     }
 
@@ -66,6 +65,8 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.searchButtonTextview.setOnClickListener(onSearchButtonClickListener)
         binding.searchEditText.addTextChangedListener(textWatcher)
+        binding.clearTextImageview.visibility = View.GONE
+        binding.searchButtonTextview.visibility = View.GONE
         addOnClearClickListener()
     }
 
@@ -77,7 +78,7 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
     private fun addOnClearClickListener() {
         binding.clearTextImageview.setOnClickListener {
             binding.searchEditText.setText("")
-            binding.searchButtonTextview.isEnabled = false
+            binding.searchButtonTextview.visibility = View.GONE
         }
     }
 }
