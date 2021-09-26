@@ -12,7 +12,7 @@
 
 <p align="center"> ### Текущий результат (Экран ввода / редактирования поискового слова, экран вывода результатов (он же главный экран)  </p>
 <p align="center">
-  <img src="https://github.com/stdimensiy/GeekBrains_Course_Professional_Development_HW_My_Dictionary_MVP/blob/completing_homework/snapshots/my_dictionar_1.jpg" width="150" title="НИжний лист - ввод и редактирвоание поисковой фразы">
+  <img src="https://github.com/stdimensiy/GeekBrains_Course_Professional_Development_HW_My_Dictionary_MVP/blob/completing_homework/snapshots/my_dictionary_1.jpg" width="150" title="Нижний лист - ввод и редактирвоание поисковой фразы">
   <img src="https://github.com/stdimensiy/GeekBrains_Course_Professional_Development_HW_My_Dictionary_MVP/blob/completing_homework/snapshots/my_dictionar_2.jpg" width="150" title="Экран выдачи результата">
 </p>
 
