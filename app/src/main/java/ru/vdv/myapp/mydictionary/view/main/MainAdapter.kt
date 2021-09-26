@@ -5,14 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.myapp.mydictionary.R
-import ru.vdv.myapp.mydictionary.model.data.DataModelFD
 import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
 import ru.vdv.myapp.mydictionary.view.common.OnListItemClickListener
 
 class MainAdapter(
     private var onListItemClickListener: OnListItemClickListener,
-    //на данном этапе передаю объекты класса принимающего слоя модели
-    // при финальной реализации планируется использовать объект слоя презентера (даже если он будет абсолютно одинаковым)
     private var data: List<DataPresenterRU>
 ) :
     RecyclerView.Adapter<MainItemViewHolder>() {

@@ -4,7 +4,6 @@ package ru.vdv.myapp.mydictionary.presenter
  * Класс DataPresenterRU - это модель данных, для работы в слое view (ориентирвоанном на сегмент RU)
  *
  * * **[word]**      - словарное слово (словосочетание) возвращенное сервером
- * * **[partOfSpeech]**  - часть речи к которой относится искомое слово
  * * **[definitions]** - определение или набор определений (если их несколько) представленных в виде
  * форматированной c исполозованием HTML тегов строки. (Форматирование простое, в основном работа
  * со шрифтом /наклон, цвет, толщина, перенос строки), разделение определений выполнено переводом
@@ -13,8 +12,7 @@ package ru.vdv.myapp.mydictionary.presenter
  * @constructor  создает объект, содержащий информацию, пригодную для отображения, о словарном слове
  */
 
-class DataPresenterRU (
+class DataPresenterRU(
     val word: String,
-    val partOfSpeech: String,
     val definitions: String
 )

@@ -16,8 +16,8 @@ class MainInteractor(
     override fun getData(word: String, fromRemoteSource: Boolean): Observable<AppState> {
         return remoteRepository
             .getData(word)
-            .map {
-                val newList = it.map {
+            .map { dataModelFD ->
+                val newList = dataModelFD.map {
                     var reorganizedDefinitions = ""
                     for (currentMeaning in it.meanings) {
                         reorganizedDefinitions =
@@ -35,11 +35,7 @@ class MainInteractor(
                         }
                         reorganizedDefinitions += "</p>"
                     }
-                    DataPresenterRU(
-                        it.word,
-                        it.meanings[0].partOfSpeech,
-                        reorganizedDefinitions
-                    )
+                    DataPresenterRU(it.word, reorganizedDefinitions)
                 }
                 AppState.Success(newList)
             }

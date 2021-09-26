@@ -1,7 +1,6 @@
 package ru.vdv.myapp.mydictionary.view.main
 
 import android.content.Context
-import android.util.Log
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.observers.DisposableObserver
@@ -15,14 +14,16 @@ import ru.vdv.myapp.mydictionary.view.common.View
 
 class MainPresenter<T : AppState, V : View>(
     private val context: Context,
-    private val interactor: MainInteractor = MainInteractor(context, RepositoryImpl(DataSourceRemote())),
+    private val interactor: MainInteractor = MainInteractor(
+        context,
+        RepositoryImpl(DataSourceRemote())
+    ),
     private val compositeDisposable: CompositeDisposable = CompositeDisposable(),
     private val schedulers: MySchedulers = MySchedulersImpl()
 ) : Presenter<T, V> {
     private var currentView: V? = null
 
     override fun attachView(view: V) {
-        Log.d("Моя проверка", "есть приаттачили вьюху")
         if (view != currentView) {
             currentView = view
         }

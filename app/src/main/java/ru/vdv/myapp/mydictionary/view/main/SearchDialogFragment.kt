@@ -3,7 +3,6 @@ package ru.vdv.myapp.mydictionary.view.main
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,8 +20,7 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            Log.d("Моя проверка / SearchDialogFragment", "Сработал onTextChanged с параметрами: $s символ старт: $start  стоп: $before количество $count")
-            if(count==0) {
+            if (count == 0) {
                 binding.searchButtonTextview.visibility = View.GONE
                 binding.clearTextImageview.visibility = View.GONE
             } else {
@@ -37,6 +35,7 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
     }
 
     companion object {
+        const val TAG = "SearchDialogFragment"
         fun newInstance(): SearchDialogFragment {
             return SearchDialogFragment()
         }

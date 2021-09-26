@@ -1,7 +1,6 @@
 package ru.vdv.myapp.mydictionary.view.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.vdv.myapp.mydictionary.R
 import ru.vdv.myapp.mydictionary.databinding.ActivityMainBinding
 import ru.vdv.myapp.mydictionary.model.data.AppState
-import ru.vdv.myapp.mydictionary.model.data.DataModelFD
 import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
 import ru.vdv.myapp.mydictionary.presenter.Presenter
 import ru.vdv.myapp.mydictionary.view.common.BaseActivity
@@ -32,7 +30,6 @@ class MainActivity : BaseActivity<AppState>() {
         }
 
     override fun createPresenter(): Presenter<AppState, View> {
-        Log.d("Моя проверка", "Сработал createPresenter")
         return MainPresenter(baseContext)
     }
 
@@ -50,7 +47,7 @@ class MainActivity : BaseActivity<AppState>() {
             })
             searchDialogFragment.show(
                 supportFragmentManager,
-                BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
+                SearchDialogFragment.TAG
             )
         }
     }
@@ -115,10 +112,5 @@ class MainActivity : BaseActivity<AppState>() {
         binding.successLinearLayout.visibility = GONE
         binding.loadingFrameLayout.visibility = GONE
         binding.errorLinearLayout.visibility = VISIBLE
-    }
-
-    companion object {
-        private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG =
-            "74a54328-5d62-46bf-ab6b-cbf5fgt0-092395"
     }
 }

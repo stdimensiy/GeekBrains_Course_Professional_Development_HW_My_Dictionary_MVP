@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.myapp.mydictionary.R
-import ru.vdv.myapp.mydictionary.model.data.DataModelFD
 import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
 
 class MainItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
