@@ -6,16 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.vdv.myapp.mydictionary.R
 import ru.vdv.myapp.mydictionary.model.data.DataModelFD
+import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
 import ru.vdv.myapp.mydictionary.view.common.OnListItemClickListener
 
 class MainAdapter(
     private var onListItemClickListener: OnListItemClickListener,
     //на данном этапе передаю объекты класса принимающего слоя модели
     // при финальной реализации планируется использовать объект слоя презентера (даже если он будет абсолютно одинаковым)
-    private var data: List<DataModelFD>
+    private var data: List<DataPresenterRU>
 ) :
     RecyclerView.Adapter<MainItemViewHolder>() {
-    fun setData(data: List<DataModelFD>) {
+    fun setData(data: List<DataPresenterRU>) {
         this.data = data
         notifyDataSetChanged()
     }
@@ -30,7 +31,7 @@ class MainAdapter(
         holder.itemView.setOnClickListener { openInNewWindow(data[position]) }
     }
 
-    private fun openInNewWindow(listItemData: DataModelFD) {
+    private fun openInNewWindow(listItemData: DataPresenterRU) {
         onListItemClickListener.onItemClick(listItemData)
     }
 

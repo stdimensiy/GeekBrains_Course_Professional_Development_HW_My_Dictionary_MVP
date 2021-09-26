@@ -22,8 +22,8 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/margin_medium"
             android:layout_marginBottom="@dimen/margin_medium"
-            android:src="@drawable/ic_twotone_search_24"
-            android:contentDescription="@string/search_btn_content_desscription" />
+            android:contentDescription="@string/search_btn_content_desscription"
+            android:src="@drawable/ic_twotone_search_24" />
     </FrameLayout>
 
     <FrameLayout
@@ -60,9 +60,10 @@
             android:layout_height="wrap_content"
             android:text="@string/error_textview_stub" />
 
-        <com.google.android.material.button.MaterialButton android:id="@+id/reload_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reload_button"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reload_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reload_button" />
     </LinearLayout>
 </FrameLayout>

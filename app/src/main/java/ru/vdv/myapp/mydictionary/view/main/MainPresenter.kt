@@ -1,5 +1,6 @@
 package ru.vdv.myapp.mydictionary.view.main
 
+import android.content.Context
 import android.util.Log
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.plusAssign
@@ -13,7 +14,8 @@ import ru.vdv.myapp.mydictionary.schedulers.MySchedulersImpl
 import ru.vdv.myapp.mydictionary.view.common.View
 
 class MainPresenter<T : AppState, V : View>(
-    private val interactor: MainInteractor = MainInteractor(RepositoryImpl(DataSourceRemote())),
+    private val context: Context,
+    private val interactor: MainInteractor = MainInteractor(context, RepositoryImpl(DataSourceRemote())),
     private val compositeDisposable: CompositeDisposable = CompositeDisposable(),
     private val schedulers: MySchedulers = MySchedulersImpl()
 ) : Presenter<T, V> {

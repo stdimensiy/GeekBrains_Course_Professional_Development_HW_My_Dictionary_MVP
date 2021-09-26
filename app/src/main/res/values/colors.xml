@@ -12,4 +12,5 @@
     <color name="color_text_main">#66000014</color>
     <color name="colorAccent">#D81B60</color>
     <color name="color_text_header">#313131</color>
+    <color name="color_text_subheader">#F14611</color>
 </resources>

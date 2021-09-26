@@ -10,6 +10,7 @@ import ru.vdv.myapp.mydictionary.R
 import ru.vdv.myapp.mydictionary.databinding.ActivityMainBinding
 import ru.vdv.myapp.mydictionary.model.data.AppState
 import ru.vdv.myapp.mydictionary.model.data.DataModelFD
+import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
 import ru.vdv.myapp.mydictionary.presenter.Presenter
 import ru.vdv.myapp.mydictionary.view.common.BaseActivity
 import ru.vdv.myapp.mydictionary.view.common.OnListItemClickListener
@@ -22,7 +23,7 @@ class MainActivity : BaseActivity<AppState>() {
 
     private val onListItemClickListener: OnListItemClickListener =
         object : OnListItemClickListener {
-            override fun onItemClick(data: DataModelFD) {
+            override fun onItemClick(data: DataPresenterRU) {
                 Toast.makeText(
                     this@MainActivity, data.word,
                     Toast.LENGTH_SHORT
@@ -32,7 +33,7 @@ class MainActivity : BaseActivity<AppState>() {
 
     override fun createPresenter(): Presenter<AppState, View> {
         Log.d("Моя проверка", "Сработал createPresenter")
-        return MainPresenter()
+        return MainPresenter(baseContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
