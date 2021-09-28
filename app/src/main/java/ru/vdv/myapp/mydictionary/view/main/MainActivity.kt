@@ -1,23 +1,30 @@
 package ru.vdv.myapp.mydictionary.view.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.vdv.myapp.mydictionary.R
 import ru.vdv.myapp.mydictionary.databinding.ActivityMainBinding
 import ru.vdv.myapp.mydictionary.model.data.AppState
 import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
-import ru.vdv.myapp.mydictionary.presenter.Presenter
 import ru.vdv.myapp.mydictionary.view.common.BaseActivity
+import ru.vdv.myapp.mydictionary.view.common.BaseViewModel
 import ru.vdv.myapp.mydictionary.view.common.OnListItemClickListener
 import ru.vdv.myapp.mydictionary.view.common.OnSearchClickListener
-import ru.vdv.myapp.mydictionary.view.common.View
 
 class MainActivity : BaseActivity<AppState>() {
     private lateinit var binding: ActivityMainBinding
+//    override val model: BaseViewModel<AppState>
+//        get() = MainViewModel(this)
+//  override val model: BaseViewModel<AppState> = MainViewModel(this)
+//    override val model: BaseViewModel<AppState> = ViewModelProvider(this).get(MainViewModel(this.baseContext)::class.java)
     private var adapter: MainAdapter? = null
+    private val observer = Observer<AppState> { renderData(it) }
 
     private val onListItemClickListener: OnListItemClickListener =
         object : OnListItemClickListener {
@@ -29,9 +36,21 @@ class MainActivity : BaseActivity<AppState>() {
             }
         }
 
-    override fun createPresenter(): Presenter<AppState, View> {
-        return MainPresenter(baseContext)
+    override val model: MainViewModel by lazy {
+        Log.d("Моя проверка MainActivity", "Инициализируется модель")
+//       //defaultViewModelProviderFactory.create(MainViewModel::class.java)
+//ViewModelProvider(this).NewInstanceFactory().create(MainViewModel::class.java)
+//
+        // вот это метод действительно возвращает нужный объект обратно (синглтон)
+        ViewModelProvider(this).get(MainViewModel::class.java)
     }
+
+   //Log.d("Моя проверка MainActivity", "Инициализируется модель")
+
+
+//    override fun createPresenter(): Presenter<AppState, View> {
+//        return MainPresenter(baseContext)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +61,7 @@ class MainActivity : BaseActivity<AppState>() {
             searchDialogFragment.setOnSearchClickListener(object :
                 OnSearchClickListener {
                 override fun onClick(searchWord: String) {
-                    presenter.getData(searchWord, true)
+                    model.getData(searchWord).observe(this@MainActivity, observer)
                 }
             })
             searchDialogFragment.show(
@@ -91,10 +110,9 @@ class MainActivity : BaseActivity<AppState>() {
         showViewError()
         binding.errorTextview.text = error ?: getString(R.string.undefined_error)
         binding.reloadButton.setOnClickListener {
-            presenter.getData("hi", true)
+            model.getData("Привет!").observe(this, observer)
         }
     }
-
 
     private fun showViewSuccess() {
         binding.successLinearLayout.visibility = VISIBLE
