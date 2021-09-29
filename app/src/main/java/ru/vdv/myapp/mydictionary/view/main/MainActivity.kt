@@ -51,6 +51,9 @@ class MainActivity : BaseActivity<AppState>() {
                 SearchDialogFragment.TAG
             )
         }
+        if (savedInstanceState != null) {
+            model.getData().observe(this@MainActivity, observer)
+        }
     }
 
     override fun renderData(appState: AppState) {

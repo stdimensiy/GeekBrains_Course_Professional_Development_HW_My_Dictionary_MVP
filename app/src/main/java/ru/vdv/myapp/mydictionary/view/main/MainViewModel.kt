@@ -28,6 +28,11 @@ class MainViewModel(
         return super.getData(word)
     }
 
+    fun getData(): LiveData<AppState> {
+        liveDataForViewToObserve.value = appState
+        return super.getData("")
+    }
+
 
     private fun getObserver(): DisposableObserver<AppState> {
         return object : DisposableObserver<AppState>() {
