@@ -4,11 +4,10 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import ru.vdv.myapp.mydictionary.model.data.AppState
-import ru.vdv.myapp.mydictionary.schedulers.MySchedulers
-import ru.vdv.myapp.mydictionary.schedulers.MySchedulersImpl
+import ru.vdv.myapp.mydictionary.rx.MySchedulers
+import ru.vdv.myapp.mydictionary.rx.MySchedulersImpl
 
 abstract class BaseViewModel<T : AppState>(
     protected val liveDataForViewToObserve: MutableLiveData<T> = MutableLiveData(),

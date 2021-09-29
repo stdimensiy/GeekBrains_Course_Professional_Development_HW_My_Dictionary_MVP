@@ -1,7 +1,6 @@
 package ru.vdv.myapp.mydictionary.view.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -13,16 +12,11 @@ import ru.vdv.myapp.mydictionary.databinding.ActivityMainBinding
 import ru.vdv.myapp.mydictionary.model.data.AppState
 import ru.vdv.myapp.mydictionary.presenter.DataPresenterRU
 import ru.vdv.myapp.mydictionary.view.common.BaseActivity
-import ru.vdv.myapp.mydictionary.view.common.BaseViewModel
 import ru.vdv.myapp.mydictionary.view.common.OnListItemClickListener
 import ru.vdv.myapp.mydictionary.view.common.OnSearchClickListener
 
 class MainActivity : BaseActivity<AppState>() {
     private lateinit var binding: ActivityMainBinding
-//    override val model: BaseViewModel<AppState>
-//        get() = MainViewModel(this)
-//  override val model: BaseViewModel<AppState> = MainViewModel(this)
-//    override val model: BaseViewModel<AppState> = ViewModelProvider(this).get(MainViewModel(this.baseContext)::class.java)
     private var adapter: MainAdapter? = null
     private val observer = Observer<AppState> { renderData(it) }
 
@@ -37,20 +31,8 @@ class MainActivity : BaseActivity<AppState>() {
         }
 
     override val model: MainViewModel by lazy {
-        Log.d("Моя проверка MainActivity", "Инициализируется модель")
-//       //defaultViewModelProviderFactory.create(MainViewModel::class.java)
-//ViewModelProvider(this).NewInstanceFactory().create(MainViewModel::class.java)
-//
-        // вот это метод действительно возвращает нужный объект обратно (синглтон)
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
-
-   //Log.d("Моя проверка MainActivity", "Инициализируется модель")
-
-
-//    override fun createPresenter(): Presenter<AppState, View> {
-//        return MainPresenter(baseContext)
-//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

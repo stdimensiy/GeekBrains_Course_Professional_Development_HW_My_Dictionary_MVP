@@ -1,8 +1,9 @@
-package ru.vdv.myapp.mydictionary.schedulers
+package ru.vdv.myapp.mydictionary.rx
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.schedulers.Schedulers
+import ru.vdv.myapp.mydictionary.rx.MySchedulers
 
 class MySchedulersImpl : MySchedulers {
 
