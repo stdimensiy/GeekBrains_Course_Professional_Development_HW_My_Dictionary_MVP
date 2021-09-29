@@ -17,9 +17,9 @@ class MainViewModel(
     )
     private var appState: AppState? = null
 
-    override fun getData(word: String): LiveData<AppState> {
+    override fun getData(word: String, isOnline: Boolean): LiveData<AppState> {
         compositeDisposable.add(
-            interactor.getData(word, false)
+            interactor.getData(word, isOnline)
                 .subscribeOn(schedulers.io())
                 .observeOn(schedulers.main())
                 .doOnSubscribe { liveDataForViewToObserve.value = AppState.Loading(null) }

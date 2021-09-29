@@ -24,4 +24,6 @@ abstract class BaseViewModel<T : AppState>(
         compositeDisposable.clear()
         super.onCleared()
     }
+
+    abstract fun getData(word: String, isOnline: Boolean): LiveData<AppState>
 }

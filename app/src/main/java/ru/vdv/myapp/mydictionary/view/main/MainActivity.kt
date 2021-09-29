@@ -43,7 +43,13 @@ class MainActivity : BaseActivity<AppState>() {
             searchDialogFragment.setOnSearchClickListener(object :
                 OnSearchClickListener {
                 override fun onClick(searchWord: String) {
-                    model.getData(searchWord).observe(this@MainActivity, observer)
+                    if (isNetworkAvailable) {
+                        model.getData(searchWord, isNetworkAvailable)
+                            .observe(this@MainActivity, observer)
+                    } else {
+                        showNoInternetConnectionDialog()
+                        model.getData().observe(this@MainActivity, observer)
+                    }
                 }
             })
             searchDialogFragment.show(
