@@ -1,4 +1,4 @@
-package ru.vdv.myapp.mydictionary.schedulers
+package ru.vdv.myapp.mydictionary.rx
 
 import io.reactivex.rxjava3.core.Scheduler
 

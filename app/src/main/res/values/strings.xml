@@ -8,4 +8,8 @@
     <string name="reload_button">Обновить</string>
     <string name="empty_server_response_on_success">Сервер прислал пустой ответ</string>
     <string name="undefined_error">Неизвестная ошибка!</string>
+    <string name="dialog_title_device_is_offline">Интернет соединение ОТСУТСТВУЕТ!</string>
+    <string name="dialog_message_device_is_offline">Устройство использует только локальные данные. Проверьте подключение к Интернету.</string>
+    <string name="dialog_title_stub">Неизвестная ошибка!</string>
+    <string name="dialog_button_cancel">Отмена</string>
 </resources>
