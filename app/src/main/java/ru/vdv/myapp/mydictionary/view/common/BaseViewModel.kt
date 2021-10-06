@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import ru.vdv.myapp.mydictionary.model.data.AppState
 import ru.vdv.myapp.mydictionary.rx.MySchedulers
@@ -15,8 +16,8 @@ abstract class BaseViewModel<T : AppState>(
     protected val schedulers: MySchedulers = MySchedulersImpl(),
     application: Application
 
-) : AndroidViewModel(application) {
-    protected val context by lazy { getApplication<Application>().applicationContext }
+) : ViewModel() {
+    //protected val context by lazy { getApplication<Application>().applicationContext }
 
     open fun getData(word: String): LiveData<T> = liveDataForViewToObserve
 

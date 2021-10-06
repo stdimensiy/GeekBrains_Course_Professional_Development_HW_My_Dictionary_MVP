@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import org.koin.android.ext.android.inject
 import ru.vdv.myapp.mydictionary.R
 import ru.vdv.myapp.mydictionary.databinding.ActivityMainBinding
 import ru.vdv.myapp.mydictionary.model.data.AppState
@@ -30,9 +31,10 @@ class MainActivity : BaseActivity<AppState>() {
             }
         }
 
-    override val model: MainViewModel by lazy {
-        ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+    override  val model: MainViewModel by inject()
+//    override val model: MainViewModel by lazy {
+//        ViewModelProvider(this).get(MainViewModel::class.java)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

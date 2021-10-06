@@ -3,18 +3,22 @@ package ru.vdv.myapp.mydictionary.view.main
 import android.app.Application
 import androidx.lifecycle.LiveData
 import io.reactivex.rxjava3.observers.DisposableObserver
+import org.koin.java.KoinJavaComponent.inject
 import ru.vdv.myapp.mydictionary.model.data.AppState
 import ru.vdv.myapp.mydictionary.model.datasource.DataSourceRemote
 import ru.vdv.myapp.mydictionary.model.repository.RepositoryImpl
+import ru.vdv.myapp.mydictionary.presenter.Interactor
 import ru.vdv.myapp.mydictionary.view.common.BaseViewModel
 
 class MainViewModel(
     application: Application
 ) : BaseViewModel<AppState>(application = application) {
-    private val interactor: MainInteractor = MainInteractor(
-        context,
-        RepositoryImpl(DataSourceRemote())
-    )
+//    private val interactor: MainInteractor = MainInteractor(
+//        context,
+//        RepositoryImpl(DataSourceRemote())
+//    )
+
+    private val interactor: MainInteractor by inject(MainInteractor::class.java)
     private var appState: AppState? = null
 
     override fun getData(word: String, isOnline: Boolean): LiveData<AppState> {
