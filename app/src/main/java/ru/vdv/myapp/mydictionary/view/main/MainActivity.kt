@@ -5,7 +5,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.ext.android.inject
 import ru.vdv.myapp.mydictionary.R
@@ -31,10 +30,7 @@ class MainActivity : BaseActivity<AppState>() {
             }
         }
 
-    override  val model: MainViewModel by inject()
-//    override val model: MainViewModel by lazy {
-//        ViewModelProvider(this).get(MainViewModel::class.java)
-//    }
+    override val model: MainViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,7 +1,5 @@
 package ru.vdv.myapp.mydictionary.view.common
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,11 +11,8 @@ import ru.vdv.myapp.mydictionary.rx.MySchedulersImpl
 abstract class BaseViewModel<T : AppState>(
     protected val liveDataForViewToObserve: MutableLiveData<T> = MutableLiveData(),
     protected val compositeDisposable: CompositeDisposable = CompositeDisposable(),
-    protected val schedulers: MySchedulers = MySchedulersImpl(),
-    application: Application
-
+    protected val schedulers: MySchedulers = MySchedulersImpl()
 ) : ViewModel() {
-    //protected val context by lazy { getApplication<Application>().applicationContext }
 
     open fun getData(word: String): LiveData<T> = liveDataForViewToObserve
 
